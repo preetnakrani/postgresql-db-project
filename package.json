@@ -1,0 +1,31 @@
+{
+  "name": "park27",
+  "version": "1.0.0",
+  "description": "304 group 27 project",
+  "main": " ",
+  "engines": {
+    "npm": "7.13.0",
+    "node": "16.2.0"
+  },
+  "scripts": {
+    "server": "cd server && npm install",
+    "client": "cd client && npm install && npm run build",
+    "begin": "concurrently \"npm run server\" \"npm run client\"",
+    "deploy": "cd server && npm run deploy",
+    "start": "npm run deploy",
+    "heroku-postbuild": "npm run client && npm run server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/preetnakrani/park27.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/preetnakrani/park27/issues"
+  },
+  "homepage": "https://github.com/preetnakrani/park27#readme",
+  "dependencies": {
+    "concurrently": "^6.2.0"
+  }
+}
