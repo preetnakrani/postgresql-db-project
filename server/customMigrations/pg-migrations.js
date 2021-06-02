@@ -9,6 +9,14 @@ const pool = new Pool({
     port: "5432",
 });
 
+// const pool = new Pool({
+//     connectionString: "",
+//     ssl: {
+//         rejectUnauthorized: false,
+//         ca: "",
+//     }
+// });
+
 module.exports = {
     query: (text, params) => pool.query(text, params),
 }
