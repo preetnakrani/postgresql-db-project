@@ -3,7 +3,7 @@
 
 Execute Command:
 
-npm start 
+npm run begin 
 
 at root directory to start server and react app. Sever runs on port 9000 by default. 
 people who visited all rides

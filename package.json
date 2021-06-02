@@ -8,12 +8,14 @@
     "node": "16.2.0"
   },
   "scripts": {
-    "server": "cd server && npm install",
-    "client": "cd client && npm install && npm run build",
-    "begin": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd server && npm run server",
+    "client": "cd client && npm run client",
     "deploy": "cd server && npm run deploy",
-    "start": "npm run deploy",
-    "heroku-postbuild": "npm run client && npm run server"
+    "begin": "concurrently \"npm run server\" \"npm run client\"",
+    "herokuClient": "cd client && npm install && npm run build",
+    "herokuServer": "cd server && npm install",
+    "heroku-postbuild": "npm run herokuClient && npm run herokuServer",
+    "start": "npm run deploy"
   },
   "repository": {
     "type": "git",
