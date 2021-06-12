@@ -31,6 +31,56 @@ app.get("/v1/customer/attractions", async (req, res) => {
   
 });
 
+// Get duration of a show
+app.get("/v1/customer/attractions/shows", async (req, res) => {
+  try {
+    const results = await db.query(
+      "select attractions.aid, attractions.name, shows.duration from attractions join shows on attractions.aid = shows.aid;");
+    res.status(200).json({
+      results: results.rows.length,
+      data: {
+        shows: results.rows
+      },
+    });
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+// Get type of dinosaur at an exhibit
+app.get("/v1/customer/attractions/dinos", async (req, res) => {
+  try {
+    const results = await db.query(
+      "select attractions.aid, attractions.name, dinosaurs.animal_name from attractions join dinosaurs on attractions.aid = dinosaurs.aid;");
+    res.status(200).json({
+      results: results.rows.length,
+      data: {
+        dinos: results.rows
+      },
+    });
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+
+// Get capacity of ride 
+app.get("/v1/customer/attractions/rides", async (req, res) => {
+  try {
+    const results = await db.query(
+      "select attractions.aid, attractions.name, rides.capacity from attractions join rides on attractions.aid = rides.aid;");
+    res.status(200).json({
+      results: results.rows.length,
+      data: {
+        rides: results.rows
+      },
+    });
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+
 
 // Get all customer purchases -- test feature
 app.get("/v1/customer/all", async (req, res) => {
