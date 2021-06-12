@@ -15,7 +15,8 @@
     "herokuClient": "cd client && npm install && npm run build",
     "herokuServer": "cd server && npm install",
     "heroku-postbuild": "npm run herokuClient && npm run herokuServer",
-    "start": "npm run deploy"
+    "start": "npm run deploy",
+    "sameTime": "npm run server & npm run client"
   },
   "repository": {
     "type": "git",

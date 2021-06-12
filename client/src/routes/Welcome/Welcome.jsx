@@ -42,18 +42,20 @@ const Welcome = () => {
   };
 
   const exploreCard = {
-    title: "Exploer",
+    title: "Explore",
     text: "Click here if you want to explore the park.",
     click: exploreClick,
     alt: "Explore image place holder",
     img: "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/d109ce23061557.563311582423a.jpg",
   };
 
-  const cards = [employeeCard, customerCard, exploreCard];
+  const cards = [exploreCard, customerCard, employeeCard];
 
   return (
     <div className="welcome-container">
-      <h1 className="welcome-banner">Welcome To The Park!</h1>
+      <div className="welcome-banner-container">
+        <h1 className="welcome-banner">Welcome To The Park!</h1>
+      </div>
       <div className="welcome-card-container">
         {cards.map((val, idx) => (
           <div className="card-holder" key={idx}>

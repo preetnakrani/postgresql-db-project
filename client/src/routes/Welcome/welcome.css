@@ -6,6 +6,10 @@
     background-attachment: fixed;
 }
 
+.welcome-banner-container {
+    z-index: 100;
+}
+
 .welcome-banner {
     font-size: 500%;
 }
@@ -14,6 +18,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-top: 10px;
+    padding-bottom: 50px;
 }
 
 .card-holder {
