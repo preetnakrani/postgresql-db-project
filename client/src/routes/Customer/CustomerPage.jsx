@@ -24,8 +24,8 @@ const CustomerPage = () => {
     };
     
     return (
-        <div className="welcome-container">
-        <div className="welcome-card-container h-100 d-flex justify-content-center">
+        <div className="customer-container">
+        <div className="customer-card-container h-100 d-flex justify-content-center">
         <div className="card-holder">
             <Card>
             <div>

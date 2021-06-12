@@ -4,8 +4,24 @@
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
+}
+
+.customer-container {
+    background: url("https://www.thesun.co.uk/wp-content/uploads/2021/04/NINTCHDBPICT000648564696.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
     height: 100vh;
 }
+
+
+.customer-card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 
 .welcome-card-container {
     display: flex;
@@ -21,7 +37,7 @@
     border-radius: 30px;
 }
 
-.card {
+/* .card {
     border-radius: 25px; 
     margin-bottom: 25px;
     margin-top: 25px;
@@ -30,4 +46,4 @@
 .card-img {
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
-}
+} */

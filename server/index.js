@@ -19,7 +19,6 @@ app.get("/", function(req, res) {
 app.get("/v1/customer/attractions", async (req, res) => {
   try {
     const results = await db.query("select * from attractions");
-    console.log(results);
     res.status(200).json({
       results: results.rows.length,
       data: {
