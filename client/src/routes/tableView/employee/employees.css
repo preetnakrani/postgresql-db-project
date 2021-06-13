@@ -1,4 +1,4 @@
-.eats-container {
+.employees-container {
   background: url("../assets/bg.png");
   background-size: cover;
   background-repeat: no-repeat;
@@ -14,7 +14,7 @@ header {
   padding: 25px;
 }
 
-.view-eats-container {
+.view-employees-container {
   background-color: white;
   border-radius: 20px;
   justify-content: center;
@@ -81,4 +81,64 @@ header {
   color: black;
   box-shadow: 0 0 50px rgb(0 0 0 / 50%);
   transition: all 1000ms ease, width 1000ms ease-in-out;
+}
+
+.buttons-container {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.selected-button {
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  margin: auto 10px auto 10px;
+  width: 200px;
+  box-shadow: 0 0 10px 5px rgb(0 0 0 / 50%);
+  cursor: pointer;
+  background-color: rgb(255 255 255 / 0%);
+  transition: background-color 1000ms ease-in, box-shadow 1000ms ease-in;
+}
+
+.selected-button:hover {
+  background-color: white;
+  box-shadow: 0 0 10px 10px rgb(0 0 0 / 60%);
+  transition: backgound-color 500ms ease-in, box-shadow 1000ms ease-in;
+}
+
+.select-button {
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  background-color: rgb(255 255 255 / 0%);
+  margin: auto 10px auto 10px;
+  width: 200px;
+  cursor: pointer;
+  box-shadow: 0 0 10px 5px rgb(0 0 0 / 50%);
+  transition: all 500ms ease-in;
+}
+
+.corner {
+  background: url("./assets/bg3.png");
+  border-radius: 50%;
+  display: flex;
+  background-color: #c0c0c0;
+  height: 20px;
+  width: 20px;
+  justify-content: center;
+  align-items: center;
+  top: 0px;
+  right: 0px;
+  margin-bottom: -15px;
+  margin-top: 5px;
+  margin-right: 150px;
 }

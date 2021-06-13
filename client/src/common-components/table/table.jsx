@@ -4,20 +4,33 @@ import { Table as Stuff } from "antd";
 import "./table.css";
 import "antd/dist/antd.css";
 
-const Table = ({ call, columns }) => {
+const Table = ({ call, columns, selector, selections }) => {
   const [data, setData] = useState();
   useEffect(() => {
     async function fetchData() {
       try {
         let result = await database.get(call);
-        console.log(result.data);
         setData(result.data);
       } catch (err) {
         alert(err);
       }
     }
-    fetchData();
-  }, []);
+    async function selectorQuery() {
+      try {
+        let result = await database.post(call, selections);
+        setData(result.data);
+        console.log(result.data);
+      } catch (err) {
+        alert(err);
+      }
+    }
+
+    if (selector) {
+      selectorQuery();
+    } else {
+      fetchData();
+    }
+  }, [selections]);
 
   return (
     <div className="table-container">
