@@ -27,12 +27,24 @@ const Employees = () => {
     [1, 1],
   ]);
 
-  const columns = columnsAll.reduce((accum, curr, idx) => {
+  let columns = columnsAll.reduce((accum, curr, idx) => {
     if (buttons[idx][0] !== 0) {
       return [...accum, curr];
     }
     return accum;
   }, []);
+
+  let display = columns.map((curr, idx) => {
+    return curr.dataIndex;
+  });
+
+  if (display.length < 1) {
+    display = ["*"];
+  }
+
+  if (columns.length < 1) {
+    columns = [...columnsAll];
+  }
 
   console.log(columns);
   const handleSelection = (idx) => {
@@ -72,14 +84,6 @@ const Employees = () => {
       </div>
     );
   });
-
-  let display = columns.map((curr, idx) => {
-    return curr.dataIndex;
-  });
-
-  if (display.length < 1) {
-    display = ["*"];
-  }
 
   let order = [];
   let tempOrder = [...buttons];
