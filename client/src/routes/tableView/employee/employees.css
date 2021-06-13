@@ -15,7 +15,7 @@ header {
 }
 
 .view-employees-container {
-  background-color: white;
+  background-color: transparent;
   border-radius: 20px;
   justify-content: center;
   align-items: center;
@@ -24,12 +24,13 @@ header {
   display: flex;
   flex-direction: column;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  padding-bottom: 60px;
   flex-shrink: 0;
   margin: 100px auto 0px auto;
   width: 80%;
   height: auto;
-  border: 2px solid black;
+  box-shadow: 0 0 10px 5px rgb(0, 0, 0, 50%);
+  padding-top: 60px;
+  padding-bottom: 60px;
 }
 
 /* .node {
@@ -103,13 +104,13 @@ header {
   box-shadow: 0 0 10px 5px rgb(0 0 0 / 50%);
   cursor: pointer;
   background-color: rgb(255 255 255 / 0%);
-  transition: background-color 1000ms ease-in, box-shadow 1000ms ease-in;
+  transition: background-color 1000ms ease-in, box-shadow 600ms ease-in;
 }
 
 .selected-button:hover {
   background-color: white;
-  box-shadow: 0 0 10px 10px rgb(0 0 0 / 60%);
-  transition: backgound-color 500ms ease-in, box-shadow 1000ms ease-in;
+  box-shadow: 0 0 10px 5px rgb(0 0 0 / 80%);
+  transition: backgound-color 1000ms ease-in, box-shadow 600ms ease-in;
 }
 
 .select-button {
@@ -141,4 +142,17 @@ header {
   margin-bottom: -15px;
   margin-top: 5px;
   margin-right: 150px;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.white-space {
+  background-color: white;
+  padding: 30px;
+  border-radius: 20px;
 }

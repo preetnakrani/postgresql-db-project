@@ -57,7 +57,7 @@ const Employees = () => {
         <div className="corner" onClick={() => handleOrder(idx)}>
           {val[1]}
         </div>
-        <div onClick={() => handleSelection(idx)}>
+        <div className="center" onClick={() => handleSelection(idx)}>
           <h4>{columnsAll[idx].title}</h4>{" "}
           <h5>
             {val[0] === 0 || val[0] === 3
@@ -134,12 +134,14 @@ const Employees = () => {
       </CSSTransition>
       <CSSTransition in={true} appear={true} timeout={2500} classNames="node">
         <div className="view-employees-container">
-          <Table
-            call={"/employees"}
-            columns={columns}
-            selector={true}
-            selections={stuffToDisplay}
-          />
+          <div className="white-space">
+            <Table
+              call={"/employees"}
+              columns={columns}
+              selector={true}
+              selections={stuffToDisplay}
+            />
+          </div>
         </div>
       </CSSTransition>
     </div>
