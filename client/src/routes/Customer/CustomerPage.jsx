@@ -31,10 +31,10 @@ const CustomerPage = () => {
             <div>
                 <CardBody className="d-flex justify-content-center">
                 <div>
-                <CardTitle tag="h1">Welcome Customers!</CardTitle>
-                    <Button onClick={attractionsClick} color="primary" size="lg" block>View Attractions</Button>
-                    <Button onClick={buyTicketClick} color="success" size="lg" block>Buy Tickets</Button>
-                    <Button onClick={updateInfoClick} color="info" size="lg" block>Update Profile</Button>
+                <CardTitle className="text-center" tag="h1">Welcome Customers!</CardTitle>
+                    <Button className="m-2" onClick={attractionsClick} color="primary" size="lg" block>View Attractions</Button>
+                    <Button className="m-2" onClick={buyTicketClick} color="success" size="lg" block>Buy Tickets</Button>
+                    <Button className="m-2" onClick={updateInfoClick} color="info" size="lg" block>Update Profile</Button>
                 </div>
                 </CardBody>
             </div>

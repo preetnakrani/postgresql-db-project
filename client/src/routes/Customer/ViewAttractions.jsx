@@ -40,9 +40,9 @@ const ViewAttractions = (props) => {
         <div className="customer-container h-100 d-flex justify-content-center">
         <div className="customer-card-container">
         <div className="p-2">
-            <Button onClick={showsClick} color="primary" size="lg" block>View Shows</Button>
-            <Button onClick={ridesClick} color="secondary" size="lg" block>View Rides</Button>
-            <Button onClick={dinosClick} color="primary" size="lg" block>View Dinosaurs</Button>
+            <Button className="m-2" onClick={showsClick} color="primary" size="lg" block>View Shows</Button>
+            <Button className="m-2" onClick={ridesClick} color="secondary" size="lg" block>View Rides</Button>
+            <Button className="m-2" onClick={dinosClick} color="primary" size="lg" block>View Dinosaurs</Button>
         </div>
         <CardDeck>
             {attractions.map(attraction => (

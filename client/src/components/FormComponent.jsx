@@ -5,7 +5,14 @@ const FormComponent = (props) => {
     return (
         <FormGroup className="p-2">
             <Label>{props.label}</Label>
-            <Input class="form-control" type={props.type} name={props.name} id={props.id} placeholder={props.placeholder}/>
+            <Input
+            value={props.state}
+            onChange={props.fn} 
+            class="form-control" 
+            type={props.type} 
+            name={props.name} 
+            id={props.id} 
+            placeholder={props.placeholder}/>
         </FormGroup>
     )
 }

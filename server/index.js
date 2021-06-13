@@ -8,6 +8,14 @@ const path = require("path");
 app.use(cors());
 app.use(express.json());
 
+const insertString = `with new_ticket as (
+  insert into tickets(tier) values (3)
+    returning tid
+  )
+  insert into customer_purchases_with(fname, lname, phone, email, code, tid, actual_price, expiry_date, date_issued, family_representative)
+  values
+    ($1, $2, $3, $4, null, (select tid from new_ticket), 30, '2021-12-12', current_date, null) returning *;`
+
 const publicPath = path.join(__dirname, '..','client', "build");
 app.use(express.static(publicPath));
 
@@ -117,8 +125,19 @@ app.get("/v1/customer/:id", async (req, res) => {
 
 
 // Customer buys ticket 
-app.post("/v1/customer/ticket", (req, res) => {
-  console.log(req.params.id);
+app.post("/v1/customer/ticket", async (req, res) => {
+  try {
+    const results = await db.query(insertString, [req.body.fname, req.body.lname, req.body.phone, req.body.email]);
+      
+      res.status(201).json({
+        status: "success",
+        data: {
+          ticket: results.rows[0],
+        }
+      });    
+    } catch (error) {
+      console.log(error);
+  }
 });
 
 // Customer updates profile 
