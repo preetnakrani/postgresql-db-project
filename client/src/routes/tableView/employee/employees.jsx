@@ -17,15 +17,9 @@ const Employees = () => {
     { title: "Shift ID", dataIndex: "sid" },
   ];
 
-  const [buttons, setButtons] = useState([
-    [1, 1],
-    [1, 1],
-    [1, 1],
-    [1, 1],
-    [1, 1],
-    [1, 1],
-    [1, 1],
-  ]);
+  let initial = columnsAll.map((val) => [1, 1]);
+
+  const [buttons, setButtons] = useState(initial);
 
   let columns = columnsAll.reduce((accum, curr, idx) => {
     if (buttons[idx][0] !== 0) {

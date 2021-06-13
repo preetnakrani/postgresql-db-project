@@ -1,10 +1,9 @@
-.employees-container {
+.customer-container {
   background: url("../assets/bg.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
-  height: 100vh;
 }
 
 header {
@@ -14,7 +13,7 @@ header {
   padding: 25px;
 }
 
-.view-employees-container {
+.view-customer-container {
   background-color: transparent;
   border-radius: 20px;
   justify-content: center;
@@ -26,7 +25,7 @@ header {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   flex-shrink: 0;
   margin: 100px auto 0px auto;
-  width: 80%;
+  width: 90%;
   height: auto;
   box-shadow: 0 0 10px 5px rgb(0, 0, 0, 50%);
   padding-top: 60px;
@@ -75,7 +74,8 @@ header {
 
 .buttons-container {
   margin-top: 25px;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   flex-direction: row;
   justify-content: center;
   align-items: center;
@@ -94,6 +94,7 @@ header {
   cursor: pointer;
   background-color: rgb(255 255 255 / 0%);
   transition: background-color 1000ms ease-in, box-shadow 600ms ease-in;
+  margin-bottom: 20px;
 }
 
 .selected-button:hover {
@@ -145,4 +146,9 @@ header {
   padding: 30px;
   border-radius: 20px;
   box-shadow: 0 0 10px 10px rgb(0 0 0 / 50%);
+}
+
+.space {
+  background-color: transparent;
+  height: 100px;
 }

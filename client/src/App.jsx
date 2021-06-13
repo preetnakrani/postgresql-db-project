@@ -6,6 +6,7 @@ import Tickets from "./routes/Tickets/Tickets";
 import ViewTable from "./routes/tableView/ViewTable";
 import Eats from "./routes/tableView/eats/eats";
 import Employees from "./routes/tableView/employee/employees";
+import Customer from "./routes/tableView/customer/customer";
 
 import "./app.css";
 
@@ -18,6 +19,7 @@ const App = () => {
         <Route exact path="/view" component={ViewTable} />
         <Route exact path="/eats" component={Eats} />
         <Route exact path="/employees" component={Employees} />
+        <Route exact path="/customer" component={Customer} />
       </Switch>
     </Router>
   );

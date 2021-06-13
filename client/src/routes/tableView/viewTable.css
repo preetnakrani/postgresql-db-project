@@ -73,26 +73,15 @@ header {
   margin: 15px;
   cursor: pointer;
   font-weight: bold;
-  position: fixed;
   top: 15px;
   color: black;
   transition: all 1000ms ease;
+  margin-bottom: -115px;
 }
 
 .backButton:hover {
   background: rgb(255, 255, 255, 80%);
-  border: none;
-  outline: none;
-  box-shadow: 0 0 20px rgb(0 0 0 / 30%);
-  padding: 9px 10px;
-  border-radius: 100px;
-  margin: 15px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: all 0.3s ease-in;
-  position: fixed;
-  top: 15px;
-  color: black;
   box-shadow: 0 0 50px rgb(0 0 0 / 50%);
+  color: black;
   transition: all 1000ms ease, width 1000ms ease-in-out;
 }
