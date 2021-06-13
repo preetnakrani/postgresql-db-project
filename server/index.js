@@ -5,22 +5,23 @@ const cors = require("cors");
 const db = require("./db/index");
 const path = require("path");
 
-
 app.use(cors());
 app.use(express.json());
 
+app.get("/all", async function (req, res) {
+  let selection = req.body.selection.reduce(
+    (accum, curr) => `${accum} ${curr}`
+  );
 
-app.get("/all", async function(req, res) {
-  let selection = req.body.selection.reduce((accum, curr) => (
-    `${accum} ${curr}`
-  ));
-
-  let order = (req.body.orderBy) ? req.body.orderBy.reduce((accum, curr) => (
-    `${accum} ${curr.column} ${(curr.asc) ? "asc" : "desc"}`
-  ), "") : "";
+  let order = req.body.orderBy
+    ? req.body.orderBy.reduce(
+        (accum, curr) => `${accum} ${curr.column} ${curr.asc ? "asc" : "desc"}`,
+        ""
+      )
+    : "";
 
   if (order.length > 0) {
-    order = `order by${order}`
+    order = `order by${order}`;
   }
 
   let query = `select ${selection} from ${req.body.tableName} ${order};`;
@@ -30,25 +31,38 @@ app.get("/all", async function(req, res) {
     let results = await db.query(query);
     res.status(200).json(results);
   } catch (e) {
-    res.status(500).json(e);  
+    res.status(500).json(e);
   }
-});  
+});
 
+app.get("/eats", async function (req, res) {
+  try {
+    let results = await db.query("select * from eats;");
+    console.log(results);
+    res.status(200).json(results.rows);
+  } catch (e) {
+    res.status(500).json(e);
+  }
+});
 
+app.get("/employees", async function (req, res) {
+  try {
+    let results = await db.query("select * from employees;");
+    console.log(results);
+    res.status(200).json(results.rows);
+  } catch (e) {
+    res.status(500).json(e);
+  }
+});
 
-if (process.env.NODE_ENV === "production") { 
+const publicPath = path.join(__dirname, "..", "client", "build");
+app.use(express.static(publicPath));
 
-  const publicPath = path.join(__dirname, '..','client', "build");
-  app.use(express.static(publicPath));
+app.get("*", function (req, res) {
+  res.sendFile(path.join(__dirname, "..", "client", "build", "index.html"));
+});
 
-  app.get("*", function(req, res) { 
-    res.sendFile(path.join(__dirname, "..", "client", "build", "index.html"));
-  });
-  
-}
-
-
-port = process.env.PORT || 9000
+port = process.env.PORT || 9000;
 app.listen(port, () => {
   console.log(`Server started at port ${port}`);
 });

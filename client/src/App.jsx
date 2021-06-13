@@ -1,19 +1,26 @@
 import React from "react";
-import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
-import a from "./apis/main";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Welcome from "./routes/Welcome/Welcome";
-import Tickets from "./routes/Tickets/Tickets"
+import Tickets from "./routes/Tickets/Tickets";
+import ViewTable from "./routes/tableView/ViewTable";
+import Eats from "./routes/tableView/eats/eats";
+import Employees from "./routes/tableView/employee/employees";
+
+import "./app.css";
 
 const App = () => {
   return (
     <Router>
       <Switch>
-        <Route exact path="/" component={Welcome}/>
-        <Route exact path="/tickets" componenet={Tickets}/>
+        <Route exact path="/" component={Welcome} />
+        <Route exact path="/tickets" componenet={Tickets} />
+        <Route exact path="/view" component={ViewTable} />
+        <Route exact path="/eats" component={Eats} />
+        <Route exact path="/employees" component={Employees} />
       </Switch>
     </Router>
   );
-}
+};
 
 export default App;

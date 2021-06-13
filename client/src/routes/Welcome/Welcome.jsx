@@ -14,7 +14,7 @@ const Welcome = () => {
   const history = useHistory();
 
   const employeeClick = () => {
-    history.push("/employees");
+    history.push("/view");
   };
 
   const customerClick = () => {
