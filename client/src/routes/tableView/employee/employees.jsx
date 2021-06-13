@@ -142,6 +142,7 @@ const Employees = () => {
           </div>
         </div>
       </CSSTransition>
+      <div className="space"></div>
     </div>
   );
 };

@@ -9,14 +9,14 @@ const Customer = () => {
   const history = useHistory();
   const columnsAll = [
     { title: "Customer ID", dataIndex: "cid" },
-    { title: "Fiirst Name", dataIndex: "fname" },
+    { title: "First Name", dataIndex: "fname" },
     { title: "Last Name", dataIndex: "lname" },
     { title: "Phone", dataIndex: "phone" },
     { title: "Email", dataIndex: "email" },
     { title: "Code", dataIndex: "code" },
     { title: "Ticket ID", dataIndex: "tid" },
     { title: "Price", dataIndex: "actual_price" },
-    { title: "Expire Date", dataIndex: "expiry_date" },
+    { title: "Expiry Date", dataIndex: "expiry_date" },
     { title: "Date Issued", dataIndex: "date_issued" },
     { title: "Family Rep", dataIndex: "family_representative" },
   ];
@@ -53,7 +53,7 @@ const Customer = () => {
 
   const handleOrder = (idx) => {
     let update = [...buttons];
-    let x = update[idx][1] % 7;
+    let x = update[idx][1] % 11;
     x += 1;
     update[idx][1] = x;
     setButtons(update);
@@ -122,7 +122,7 @@ const Customer = () => {
         <Button className="backButton" onClick={history.goBack}>
           <span>{"<"}</span>
         </Button>
-        <header className="customer-banner">Employees Table</header>
+        <header className="customer-banner">Customer Table</header>
       </div>
       <CSSTransition in={true} appear={true} timeout={2500} classNames="node">
         <div className="buttons-container">

@@ -7,7 +7,6 @@ const path = require("path");
 
 app.use(cors());
 app.use(express.json());
-let i = 1;
 app.get("/all", async function (req, res) {
   console.log(req);
   let selection = req.body.selection;
@@ -55,7 +54,6 @@ app.get("/eats", async function (req, res) {
 
 app.post("/employees", async function (req, res) {
   let selection = req.body.selection;
-  console.log(i++);
   let temp = "";
   for (let i in selection) {
     temp += `${selection[i]}, `;
@@ -91,7 +89,6 @@ app.post("/employees", async function (req, res) {
 
 app.post("/customer", async function (req, res) {
   let selection = req.body.selection;
-  console.log(i++);
   let temp = "";
   for (let i in selection) {
     temp += `${selection[i]}, `;
