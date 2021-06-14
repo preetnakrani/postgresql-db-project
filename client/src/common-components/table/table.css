@@ -6,3 +6,35 @@ td {
 table {
   border-bottom: 1px solid black;
 }
+
+.table-container {
+  background-color: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px 10px rgb(0 0 0 / 50%);
+}
+
+.download {
+  background-color: transparent;
+  color: black;
+  cursor: pointer;
+  height: 75px;
+  font-size: xx-large;
+  box-shadow: 0 0 10px 5px rgb(0 0 0 / 50%);
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+  margin: 50px auto auto auto;
+  width: auto;
+  transition: box-shadow 2000ms ease, background-color 1000ms ease-in-out;
+}
+
+.download:hover {
+  background-color: white;
+  box-shadow: 0 0 10px 5px rgb(0 0 0 / 80%);
+  transition: backgound-color 1000ms ease-in, box-shadow 600ms ease-in;
+}

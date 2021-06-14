@@ -75,7 +75,34 @@ app.post("/employees", async function (req, res) {
     order = `order by${order}`;
   }
 
-  let query = `select ${selection} from employees ${order};`;
+  let conditions = req.body.conditions ? req.body.conditions : [];
+  let connector = req.body.connectors ? req.body.connectors : [];
+  let cond = "";
+  for (let k in conditions) {
+    let o = conditions[k];
+    let column = o.access;
+    let val = parseFloat(o.value);
+    let final = null;
+    if (isNaN(val)) {
+      final = `\'${o.value}\'`;
+    } else if (Number.isInteger(val)) {
+      final = parseInt(o.val);
+    }
+    let tempCond = `${column} = ${final}`;
+    if (k < conditions.length - 1) {
+      let connect = connector[k];
+      tempCond = `${tempCond} ${connect}`;
+    }
+    tempCond = `${tempCond} `;
+    cond = cond + tempCond;
+  }
+
+  if (cond.length > 0) {
+    cond = cond.slice(0, -1);
+    cond = `where ${cond}`;
+  }
+
+  let query = `select ${selection} from employees ${cond} ${order};`;
   console.log(query);
 
   try {
