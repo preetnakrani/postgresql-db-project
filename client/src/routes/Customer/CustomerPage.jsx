@@ -20,7 +20,7 @@ const CustomerPage = () => {
     };
 
     const updateInfoClick = () => {
-        history.push("/customer/:id/update", {from: "CustomerPage"});
+        history.push("/customer/view-tickets", {from: "CustomerPage"});
     };
     
     return (
@@ -34,7 +34,7 @@ const CustomerPage = () => {
                 <CardTitle className="text-center" tag="h1">Welcome Customers!</CardTitle>
                     <Button className="m-2" onClick={attractionsClick} color="primary" size="lg" block>View Attractions</Button>
                     <Button className="m-2" onClick={buyTicketClick} color="success" size="lg" block>Buy Tickets</Button>
-                    <Button className="m-2" onClick={updateInfoClick} color="info" size="lg" block>Update Profile</Button>
+                    <Button className="m-2" onClick={updateInfoClick} color="info" size="lg" block>View Tickets</Button>
                 </div>
                 </CardBody>
             </div>

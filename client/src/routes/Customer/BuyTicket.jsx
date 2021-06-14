@@ -45,12 +45,6 @@ const BuyTicket = () => {
                         <p className="card-text"><span className="fw-bold">Expiry date: </span>{ticketDetails.expiry_date}</p>
                         <p className="card-text"><span className="fw-bold">Date issued: </span>{ticketDetails.date_issued}</p>
                     </CardBody>
-                    {/* <CardBody>{ticketDetails.fname + " " + ticketDetails.lname}</CardBody>
-                    <CardBody>{ticketDetails.phone}</CardBody>
-                    <CardBody>{ticketDetails.email}</CardBody>
-                    <CardBody>{"Price: $" + ticketDetails.actual_price}</CardBody>
-                    <CardBody>{"Expiry date: " + ticketDetails.expiry_date}</CardBody>
-                    <CardBody>{"Date issued: " + ticketDetails.date_issued}</CardBody> */}
             </Card>
         ) : (
             <Card className="p-3">

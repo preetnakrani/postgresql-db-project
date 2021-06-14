@@ -7,10 +7,10 @@ import Tickets from "./routes/Tickets/Tickets"
 import CustomerPage from "./routes/Customer/CustomerPage";
 import ViewAttractions from "./routes/Customer/ViewAttractions";
 import BuyTicket from "./routes/Customer/BuyTicket";
-import UpdateCustomerInfo from "./routes/Customer/UpdateCustomerInfo";
 import ViewShows from "./routes/Customer/ViewShows";
 import ViewDinos from "./routes/Customer/ViewDinos";
 import ViewRides from "./routes/Customer/ViewRides";
+import ViewTickets from "./routes/Customer/ViewTickets";
 
 const App = () => {
   return (
@@ -23,7 +23,7 @@ const App = () => {
           <Route exact path="/customer/attractions/dinos" component={ViewDinos}/>
           <Route exact path="/customer/attractions/rides" component={ViewRides}/>
           <Route exact path="/customer/buy" component={BuyTicket}/>
-          <Route exact path="/customer/:id/update" component={UpdateCustomerInfo}/>
+          <Route exact path="/customer/view-tickets" component={ViewTickets}/>
       </Switch>
     </Router>
   );

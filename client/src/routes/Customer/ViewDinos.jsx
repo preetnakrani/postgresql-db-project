@@ -2,7 +2,7 @@ import React, {useEffect, useContext, useState} from 'react'
 import "./customer.css";
 import main from "../../apis/main";
 import Attraction from "../../components/Attraction"
-import { CardDeck } from 'reactstrap';
+import { Card, CardDeck, Form, Row, Col, Label, FormGroup, Input } from 'reactstrap';
 
 const ViewDinos = () => {
     const [dinos, setDinos] = useState([]);

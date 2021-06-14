@@ -2,8 +2,9 @@ import React, {useEffect, useContext, useState} from 'react'
 import "./customer.css";
 import main from "../../apis/main";
 import Attraction from "../../components/Attraction"
-import { Button, CardDeck } from 'reactstrap';
+import { Button, CardDeck, Form, Label, Input, FormGroup, Row, Col } from 'reactstrap';
 import { useHistory } from 'react-router';
+import FormComponent from '../../components/FormComponent';
 
 
 
@@ -13,8 +14,8 @@ const ViewAttractions = (props) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await main.get("/v1/customer/attractions");
-                setAttractions(response.data.data.attractions);
+                const response = await main.post("/v1/customer/attractions");
+                setAttractions(response.data);
             } catch (error) {}    
         }
         fetchData();
@@ -33,7 +34,6 @@ const ViewAttractions = (props) => {
     const ridesClick = () => {
         history.push("/customer/attractions/rides", {from: "ViewAttractions"});
     };
-
 
 
     return (
