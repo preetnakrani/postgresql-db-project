@@ -6,12 +6,12 @@ import "./viewTable.css";
 
 const ViewTable = () => {
   const tables = [
-    "Attractions",
-    "Customer",
-    "Eats",
     "Employees",
+    "Customer",
     "Food",
     "Inventory",
+    "Eats",
+    "Attractions",
     "Offers",
     "Schedules",
     "Shift",

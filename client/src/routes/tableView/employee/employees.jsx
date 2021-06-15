@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Button } from "reactstrap";
 import { CSSTransition } from "react-transition-group";
-import exportFromJson from "export-from-json";
 import Table from "../../../common-components/table/table";
 import "./employees.css";
 
@@ -28,6 +27,7 @@ let globalStuffToDisplay = {
   ],
   conditions: [],
   connectors: [],
+  table: "employees",
 };
 const Employees = () => {
   const history = useHistory();
@@ -340,6 +340,7 @@ const Employees = () => {
     orderBy: order,
     conditions: [...usedConditions],
     connectors: [...connectors],
+    table: "employees",
   };
 
   const handleQuery = () => {
@@ -381,7 +382,7 @@ const Employees = () => {
         <div className="view-employees-container">
           <div>
             <Table
-              call={"/employees"}
+              call={"/allTables"}
               columns={query ? columns : globalColumns}
               selector={true}
               selections={query ? stuffToDisplay : globalStuffToDisplay}
