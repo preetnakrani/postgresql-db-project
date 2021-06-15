@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Card, CardBody, CardTitle, Button } from "reactstrap";
+import { Form, Card, CardBody, CardTitle, Button, CardSubtitle } from "reactstrap";
 import FormComponent from "../../components/FormComponent.jsx";
 import "./employee.css";
 import database from "../../apis/database";
@@ -41,7 +41,7 @@ const UpdateShift = () => {
         {submit ? (
           <Card>
             <CardTitle className="p-2 text-center" tag="h2">
-              Shift details:
+              Your Shift Details:
             </CardTitle>
             <CardBody>
               <p className="card-text">
@@ -83,12 +83,15 @@ const UpdateShift = () => {
             <CardTitle className="text-center" tag="h2">
               Enter the necessary details to update your shift.
             </CardTitle>
+            <CardSubtitle className="mb-2 text-muted">
+              Make sure your Employee ID and description match the details on your shift.
+            </CardSubtitle>
             <CardBody>
               <Form>
                 <FormComponent
                   state={description}
                   fn={(e) => setDescription(e.target.value)}
-                  label="Description"
+                  label="Description *"
                   type="text"
                   name="description"
                   id="description"
@@ -142,7 +145,7 @@ const UpdateShift = () => {
                 <FormComponent
                   state={eid}
                   fn={(e) => setEid(e.target.value)}
-                  label="Employee ID"
+                  label="Employee ID *"
                   type="text"
                   name="eid"
                   id="eid"

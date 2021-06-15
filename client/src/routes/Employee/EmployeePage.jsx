@@ -12,15 +12,15 @@ const EmployeePage = () => {
     const history = useHistory();
 
     const insertClick = () => {
-        history.push("/employee/insert", {from: "EmployeePage"});
+        history.push("/shift/insert", {from: "EmployeePage"});
     };
 
     const updateClick = () => {
-        history.push("/employee/update", {from: "EmployeePage"});
+        history.push("/shift/update", {from: "EmployeePage"});
     };
 
     const deleteClick = () => {
-        history.push("/employee/delete", {from: "EmployeePage"});
+        history.push("/shift/delete", {from: "EmployeePage"});
     };
 
     return (
@@ -30,12 +30,10 @@ const EmployeePage = () => {
             <Card>
             <div>
                 <CardBody className="d-flex justify-content-center">
-                <div>
                 <CardTitle className = "text-center" tag="h1">Make edits to your upcoming shifts here!</CardTitle>
                     <Button className = "m-2" onClick={insertClick} color="primary" size="lg" block>Insert Shift</Button>
                     <Button className = "m-2" onClick={updateClick} color="success" size="lg" block>Update Shift</Button>
                     <Button className = "m-2" onClick={deleteClick} color="info" size="lg" block>Delete Shift</Button>
-                </div>
                 </CardBody>
             </div>
             </Card>

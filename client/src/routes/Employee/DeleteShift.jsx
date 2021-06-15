@@ -44,7 +44,7 @@ const DeleteShift = () => {
         ) : (
           <Card className="p-3">
             <CardTitle className="text-center" tag="h2">
-              Enter your information to buy a ticket to our park
+              Enter the necessary details to delete a shift
             </CardTitle>
             <CardBody>
               <Form>
