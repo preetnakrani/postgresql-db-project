@@ -338,7 +338,7 @@ const insertShift = `
     ($1, $2, $3, $4, $5, $6, $7, $8) returning *;`;
 
 const updateShift = `
-  update Shift_At_WorksOn
+  update shift_At_workson
   set start_date = $2, end_date = $3, start_time = $4, end_time = $5, status = $6, aid = $8
   where description = $1 AND eid = $7 returning *;`;
 
@@ -359,13 +359,7 @@ app.post("/v1/employee/add", async (req, res) => {
       req.body.eid,
       req.body.aid,
     ]);
-
-    res.status(201).json({
-      status: "success",
-      data: {
-        shift: results.rows[0],
-      },
-    });
+    res.status(201).json(results.rows);
   } catch (error) {
     console.log(error);
   }
@@ -385,12 +379,7 @@ app.post("/v1/employee/update", async (req, res) => {
       req.body.aid,
     ]);
 
-    res.status(201).json({
-      status: "success",
-      data: {
-        shift: results.rows[0],
-      },
-    });
+    res.status(201).json(results.rows);
   } catch (error) {
     console.log(error);
   }
@@ -404,13 +393,7 @@ app.post("/v1/employee/delete", async (req, res) => {
       req.body.eid,
     ]);
 
-    res.status(201).json({
-      status: "success",
-      data: {
-        shift: results.rows[0],
-        //not sure if I need the above
-      },
-    });
+    res.status(201).json(results.rows);
   } catch (error) {
     console.log(error);
   }

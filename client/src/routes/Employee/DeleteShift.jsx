@@ -17,7 +17,7 @@ const DeleteShift = () => {
         eid: eid,
       });
       console.log(response);
-      setShiftDetails(response.data.data.ticket);
+      setShiftDetails(response.data[0]);
       setSubmit(true);
     } catch (error) {}
   };
