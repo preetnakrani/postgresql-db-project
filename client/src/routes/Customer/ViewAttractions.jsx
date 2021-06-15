@@ -1,6 +1,6 @@
 import React, {useEffect, useContext, useState} from 'react'
 import "./customer.css";
-import main from "../../apis/main";
+import database from "../../apis/database";
 import Attraction from "../../components/Attraction"
 import { Button, CardDeck, Form, Label, Input, FormGroup, Row, Col } from 'reactstrap';
 import { useHistory } from 'react-router';
@@ -14,7 +14,7 @@ const ViewAttractions = (props) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await main.post("/v1/customer/attractions");
+                const response = await database.post("/v1/customer/attractions");
                 setAttractions(response.data);
             } catch (error) {}    
         }

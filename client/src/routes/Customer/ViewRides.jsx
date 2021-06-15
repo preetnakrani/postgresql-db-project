@@ -1,6 +1,6 @@
 import React, {useEffect, useContext, useState} from 'react'
 import "./customer.css";
-import main from "../../apis/main";
+import database from "../../apis/database";
 import Attraction from "../../components/Attraction"
 import { CardDeck, Col, Form, Input, Label, Row } from 'reactstrap';
 
@@ -12,7 +12,7 @@ const ViewRides = (props) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await main.post("/v1/customer/attractions/rides", {
+                const response = await database.post("/v1/customer/attractions/rides", {
                     capacity: selectors,
                     connector: connector,
                 });

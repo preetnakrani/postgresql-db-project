@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import "./customer.css";
-import main from "../../apis/main";
+import database from "../../apis/database";
 import { Button, Card, CardBody, CardDeck, CardTitle, Col, Form, FormGroup, Input, Label, Row } from 'reactstrap';
 import FormComponent from '../../components/FormComponent';
 
@@ -14,7 +14,7 @@ const ViewTickets = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await main.post("/v1/customer/view-tickets", {
+            const response = await database.post("/v1/customer/view-tickets", {
                 tier: tier,
                 email: email,
             })

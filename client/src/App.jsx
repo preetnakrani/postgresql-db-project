@@ -1,9 +1,7 @@
 import React from "react";
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
-import a from "./apis/main";
 
 import Welcome from "./routes/Welcome/Welcome";
-import Tickets from "./routes/Tickets/Tickets"
 import CustomerPage from "./routes/Customer/CustomerPage";
 import ViewAttractions from "./routes/Customer/ViewAttractions";
 import BuyTicket from "./routes/Customer/BuyTicket";

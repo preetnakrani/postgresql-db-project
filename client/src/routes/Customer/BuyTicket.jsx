@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { Form, Card, CardBody, CardTitle, Button, Label, FormGroup, Input } from 'reactstrap';
 import FormComponent from '../../components/FormComponent.jsx';
 import "./customer.css";
-import main from "../../apis/main";
+import database from "../../apis/database";
 
 const BuyTicket = () => {
     const [fname, setFname] = useState("");
@@ -18,7 +18,7 @@ const BuyTicket = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await main.post("/v1/customer/ticket", {
+            const response = await database.post("/v1/customer/ticket", {
                 fname: fname,
                 lname: lname,
                 phone: phone,

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import main from "../apis/main";
+import database from "../apis/database";
 import { Table as Stuff } from "antd";
 import exportFromJson from "export-from-json";
 import "./table.css";
