@@ -9,6 +9,9 @@ const Attractions = () => {
   const handlePark = () => {
     history.push("/Report");
   };
+  const handleStats = () => {
+    history.push("/Stats");
+  };
   return (
     <div className="attractions-container">
       <div className="attractions-banner-container">
@@ -20,6 +23,13 @@ const Attractions = () => {
         <div className="view-attractions-container">
           <div className="view-viewHolder" onClick={handlePark}>
             Park View
+          </div>
+        </div>
+      </CSSTransition>
+      <CSSTransition in={true} appear={true} timeout={2500} classNames="node">
+        <div className="view-attractions-container">
+          <div className="view-viewHolder" onClick={handleStats}>
+            Stats
           </div>
         </div>
       </CSSTransition>

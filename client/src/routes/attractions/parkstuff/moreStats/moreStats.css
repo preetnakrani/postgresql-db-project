@@ -130,3 +130,116 @@ header {
   box-shadow: 0 0 0px 10px rgb(0 0 0 / 50%);
   transition: background-color 500ms ease-in, box-shadow 600ms ease-in;
 }
+
+.disp-string {
+  font-size: large;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 0 0 10px 5px rgb(0 0 0 /50%);
+  min-width: 400px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  min-height: 40px;
+}
+
+.result {
+  font-size: large;
+  margin-top: 20px;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 0 0 10px 5px rgb(0 0 0 /50%);
+  min-width: 45px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  min-height: 40px;
+}
+
+.division-condition {
+  margin-top: 25px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.division-single-condition {
+  border-radius: 20px;
+  background-color: transparent;
+  box-shadow: 0 0 10px 5px rgb(0 0 0 / 50%);
+  margin-left: 10px;
+  margin-right: 10px;
+  display: flex;
+  flex-direction: column;
+  padding-top: 5px;
+  width: 220px;
+  min-height: 35px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 1000ms ease-in;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.division-single-condition:hover {
+  background-color: white;
+  transition: all 600ms ease-in;
+}
+
+.division-single-condition-selected {
+  border-radius: 20px;
+  background-color: white;
+  box-shadow: 0 0 0px 10px rgb(0 0 0 / 50%);
+  margin-left: 10px;
+  margin-right: 10px;
+  display: flex;
+  flex-direction: column;
+  padding-top: 5px;
+  width: 220px;
+  min-height: 35px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 1000ms ease-in;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.division-stuff-container {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0 0 10px 5px rgb(0 0 0 / 50%);
+  width: 220px;
+  height: 50px;
+}
+
+.division-options-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.options-container {
+  cursor: pointer;
+  font-size: large;
+  background-color: transparent;
+  box-shadow: 0 0 10px 5px rgb(0 0 0 / 50%);
+  border-radius: 20px;
+  min-width: 300px;
+  min-height: 150px;
+  padding-left: 15px;
+  justify-content: center;
+  padding-top: 15px;
+}
