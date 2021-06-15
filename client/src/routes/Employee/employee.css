@@ -1,0 +1,36 @@
+.welcome-container {
+    background: url("https://https://i2.wp.com/www.grapheine.com/wp-content/uploads/2019/11/jp-cover.jpg?fit=1518%2C934&quality=90&strip=all&ssl=1");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+  }
+
+.employee-container {
+    background: url("https://https://i2.wp.com/www.grapheine.com/wp-content/uploads/2019/11/jp-cover.jpg?fit=1518%2C934&quality=90&strip=all&ssl=1");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+}
+
+.employee-card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.welcome-card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-holder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50vw;
+    border-radius: 30px;
+}

@@ -15,8 +15,7 @@
     "herokuClient": "cd client && npm install && npm run build",
     "herokuServer": "cd server && npm install",
     "heroku-postbuild": "npm run herokuClient && npm run herokuServer",
-    "start": "npm run deploy",
-    "sameTime": "npm run server & npm run client"
+    "start": "npm run deploy"
   },
   "repository": {
     "type": "git",
@@ -31,6 +30,7 @@
   "dependencies": {
     "concurrently": "^6.2.0",
     "prettier": "^2.3.0",
-    "react-table": "^7.7.0"
+    "react-table": "^7.7.0",
+    "reactstrap": "^8.9.0"
   }
 }
