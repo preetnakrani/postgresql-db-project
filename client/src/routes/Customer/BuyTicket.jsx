@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Form, Card, CardBody, CardTitle, Button } from 'reactstrap';
+import { Form, Card, CardBody, CardTitle, Button, Label, FormGroup, Input } from 'reactstrap';
 import FormComponent from '../../components/FormComponent.jsx';
 import "./customer.css";
 import main from "../../apis/main";
@@ -9,6 +9,7 @@ const BuyTicket = () => {
     const [lname, setLname] = useState("");
     const [phone, setPhone] = useState("");
     const [email, setEmail] = useState("");
+    const [tier, setTier] = useState(0);
 
     const [ticketDetails, setTicketDetails] = useState({});
 
@@ -22,7 +23,7 @@ const BuyTicket = () => {
                 lname: lname,
                 phone: phone,
                 email: email,
-
+                tier: parseInt(tier),
             })
             console.log(response);
             setTicketDetails(response.data.data.ticket);
@@ -86,6 +87,19 @@ const BuyTicket = () => {
                     id="email"
                     placeholder="Email"
                 />
+                <FormGroup className="p-3">
+                    <Label for="tier">Tier</Label>
+                    <Input 
+                    type="select"
+                    value={tier}
+                    onChange={e => setTier(e.target.value)}>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </Input>
+                </FormGroup>
                 <Button onClick={handleSubmit} type="submit" size="lg">Submit</Button>
             </Form>
             </CardBody>

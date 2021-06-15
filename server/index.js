@@ -77,12 +77,15 @@ app.post("/v1/customer/attractions/rides", async (req, res) => {
 
 // Customer buys ticket 
 app.post("/v1/customer/ticket", async (req, res) => {
+  let tier = req.body.tier;
+  let price = tier * 10;
+
   let insertString = `with new_ticket as (
-    insert into tickets(tier) values (3)
+    insert into tickets(tier) values (${tier})
       returning tid)
     insert into customer_purchases_with(fname, lname, phone, email, code, tid, actual_price, expiry_date, date_issued, family_representative)
     values
-      ($1, $2, $3, $4, null, (select tid from new_ticket), 30, '2021-12-12', current_date, null) returning *;`  
+      ($1, $2, $3, $4, null, (select tid from new_ticket), ${price}, '2021-12-12', current_date, null) returning *;`  
   try {
     const results = await db.query(insertString, [req.body.fname, req.body.lname, req.body.phone, req.body.email]);
       
