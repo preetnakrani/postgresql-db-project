@@ -101,10 +101,7 @@ const Count = () => {
     endpoint: "/join/park",
   });
 
-  console.log(group);
-
   const handleGroupChange = (e) => {
-    console.log(e.target.value);
     setGroup(groupBy[e.target.value]);
   };
 
@@ -123,7 +120,6 @@ const Count = () => {
     temp.active = !temp.active;
     setCond(temp);
   };
-  console.log(group.disp);
   let groups = (
     <div className="options-container">
       <div className="selection-container">
@@ -195,8 +191,6 @@ const Count = () => {
     );
   });
 
-  console.log(tab);
-
   const performQuery = () => {
     let final = {};
     final.endpoint = "/visit/attractions/park/reports";
@@ -255,7 +249,7 @@ const Count = () => {
         <div className="selection-stuff-container">{groups}</div>
       </CSSTransition>
       <CSSTransition in={true} appear={true} timeout={2500} classNames="node">
-        <div className="query-button" onClick={() => performQuery()}>
+        <div className="query-start" onClick={() => performQuery()}>
           Query!
         </div>
       </CSSTransition>

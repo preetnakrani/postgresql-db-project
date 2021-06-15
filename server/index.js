@@ -332,6 +332,25 @@ app.post("/visit/attractions/park/reports", async function (req, res) {
   }
 });
 
+app.post("/visit/attractions/park/stats", async function (req, res) {
+  console.log(req.body);
+  let outer = req.body.nest;
+  let inner = req.body.inner;
+  let group = req.body.group;
+
+  let base = `select ${outer} from (select ${inner} from visits inner join (select attractions.aid, attractions.name, attractions.location, dinosaurs.animal_name, rides.capacity, shows.sid, shows.duration from attractions full outer join dinosaurs on dinosaurs.aid = attractions.aid full outer join rides on rides.aid = attractions.aid full outer join shows on shows.aid = attractions.aid) as foo on foo.aid = visits.aid group by ${group}) as x;`;
+  let query = base;
+  console.log(query);
+
+  try {
+    let results = await db.query(query);
+    res.status(200).json(results.rows);
+  } catch (e) {
+    console.log(e);
+    res.status(500).json(e);
+  }
+});
+
 const publicPath = path.join(__dirname, "..", "client", "build");
 app.use(express.static(publicPath));
 
