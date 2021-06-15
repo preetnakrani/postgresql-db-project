@@ -333,7 +333,7 @@ app.post("/visit/attractions/park/reports", async function (req, res) {
 });
 
 const insertShift = `
-  insert into Shift_At_WorksOn(description, start_date, end_date, start_time, end_time, status, eid, aid)
+  insert into shift_at_workson (description, start_date, end_date, start_time, end_time, status, eid, aid)
   values
     ($1, $2, $3, $4, $5, $6, $7, $8) returning *;`;
 
@@ -416,7 +416,6 @@ app.post("/v1/employee/delete", async (req, res) => {
   }
 });
 
-const publicPath = path.join(__dirname, "..", "client", "build");
 app.post("/visit/attractions/park/stats", async function (req, res) {
   console.log(req.body);
   let outer = req.body.nest;
