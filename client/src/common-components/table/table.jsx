@@ -17,6 +17,7 @@ const Table = ({ call, columns, selector, selections, filename }) => {
       }
     }
     async function selectorQuery() {
+      console.log(selections);
       try {
         let result = await database.post(call, selections);
         setData(result.data);
