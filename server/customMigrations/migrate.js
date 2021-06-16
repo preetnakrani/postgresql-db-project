@@ -1,8 +1,24 @@
 const db = require("./pg-migrations");
 
 const migrate = async function () {
+  await db.query("drop table if exists visits;");
+  await db.query("drop table if exists customer_purchases_with;");
+  await db.query("drop table if exists shift_at_worksOn;");
+  await db.query("drop table if exists tickets;");
+  await db.query("drop table if exists ticket_tier;");
+  await db.query("drop table if exists eats;");
+  await db.query("drop table if exists dinosaurs;");
+  await db.query("drop table if exists shows;");
+  await db.query("drop table if exists rides;");
+  await db.query("drop table if exists attractions;");
+  await db.query("drop table if exists inventory_order;");
+  await db.query("drop table if exists employees;");
+  await db.query("drop table if exists food;");
+  await db.query("drop table if exists schedules;");
+  await db.query("drop table if exists offers;");
+  await db.query("drop table if exists tier_quantity;");
 
-    // do not change the order of the queries
+  // do not change the order of the queries
 
   await db.query(
     "Create table if not exists tier_quantity( tier char(1) primary key, minTickets integer );"
@@ -53,9 +69,6 @@ const migrate = async function () {
     "CREATE TABLE if not exists visits ( aid INT, cid INT, frequency INT, PRIMARY KEY (aid, cid), FOREIGN KEY (aid) REFERENCES attractions(aid) on delete cascade on update cascade, FOREIGN KEY (cid) REFERENCES customer_purchases_with(cid) on delete set null on update cascade );"
   );
 
-
-
-
   // Populate tables ===
 
   await db.query(
@@ -97,7 +110,7 @@ const migrate = async function () {
     "INSERT INTO customer_purchases_with(cid, fname, lname, phone, email, code, tid, actual_price, expiry_date, date_issued, family_representative) VALUES(1, 'John', 'Smith', '2369991234', 'johnsmith@gmail.com', null, 1, 10, '2021-05-03', '2021-05-02', null),(2, 'Jack', 'Smith', '2369991234', 'johnsmith@gmail.com', null, 2, 10, '2021-05-03', '2021-05-02', null),(3, 'Jake', 'Smith', '2362222222', 'jacksmith@gmail.com', null, 3, 30, '2021-05-03', '2021-05-02', null),(4, 'Bob', 'Joe', '2361231234', 'bobjoe@yahoo.com', null, 4, 20, '2021-05-13', '2021-05-12', null),(5, 'Joe', 'Bob', '2369879876', 'joebob@yahoo.com', 'ADC125', 5, 18, '2021-05-13', '2021-05-12', null);"
   );
   await db.query(
-    "INSERT INTO visits (aid, cid, frequency) VALUES (1, 3, 1), (1, 2, 7),(1, 4, 3),(2, 1, 4),(2, 2, 5);"
+    "INSERT INTO visits (aid, cid, frequency) VALUES (1, 1, 1), (3, 1, 1), (4, 1, 2), (6, 1, 3), (7, 1, 5), (9, 1, 1), (10, 1, 1), (11, 1, 2), (12, 1, 1), (13, 1, 3), (9, 2, 1), (10, 2, 2), (11, 2, 1), (12, 2, 3), (13, 2, 3), (1, 3, 7), (3, 3, 5), (4, 3, 4), (6, 3, 2), (7, 3, 3), (2, 4, 1), (5, 4, 1), (8, 4, 1), (14, 4, 2), (15, 4, 1), (1, 5, 1), (2, 5, 1), (3, 5, 1), (4, 5, 1), (5, 5, 1), (6, 5, 1), (7, 5, 1), (8, 5, 1), (9, 5, 1), (10, 5, 1), (11, 5, 1), (12, 5, 1), (13, 5, 1), (14, 5, 1), (15, 5, 1);"
   );
 
   await db.query(

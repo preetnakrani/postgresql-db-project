@@ -1,0 +1,33 @@
+.attractions-container {
+  background: url("../assets/bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+header {
+  font-family: verdana, monospace;
+  font-size: 35px;
+  text-align: center;
+  padding: 25px;
+}
+
+.view-attractions-container {
+  background-color: transparent;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  flex-shrink: 0;
+  margin: 100px auto 0px auto;
+  width: 90%;
+  height: auto;
+  box-shadow: 0 0 10px 5px rgb(0, 0, 0, 50%);
+  padding-top: 60px;
+  padding-bottom: 60px;
+}

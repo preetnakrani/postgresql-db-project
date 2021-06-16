@@ -15,7 +15,10 @@
     "herokuClient": "cd client && npm install && npm run build",
     "herokuServer": "cd server && npm install",
     "heroku-postbuild": "npm run herokuClient && npm run herokuServer",
-    "start": "npm run deploy"
+    "start": "npm run deploy",
+    "client-install"  : "cd client && npm install",
+    "server-install"  : "cd server && npm install",
+    "install-all-deps": "concurrently \"npm run server-install\" \"npm run client-install\""
   },
   "repository": {
     "type": "git",
@@ -28,6 +31,9 @@
   },
   "homepage": "https://github.com/preetnakrani/park27#readme",
   "dependencies": {
-    "concurrently": "^6.2.0"
+    "concurrently": "^6.2.0",
+    "prettier": "^2.3.0",
+    "react-table": "^7.7.0",
+    "reactstrap": "^8.9.0"
   }
 }
