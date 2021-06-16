@@ -8,7 +8,7 @@ const FormComponent = (props) => {
             <Input
             value={props.state}
             onChange={props.fn} 
-            class="form-control" 
+            className="form-control" 
             type={props.type} 
             name={props.name} 
             id={props.id} 

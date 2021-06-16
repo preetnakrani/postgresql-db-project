@@ -31,10 +31,10 @@ const App = () => {
         <Route exact path="/attractions" component={Attractions} />
         <Route exact path="/park/view" component={ParkView} />
         <Route exact path="/Report" component={Count} />
-        <Route exact path="/employee" component={EmployeePage} />
-        <Route exact path="/employee/insert" component={AddShift} />
-        <Route exact path="/employee/update" component={UpdateShift} />
-        <Route exact path="/employee/delete" component={DeleteShift} />
+        <Route exact path="/shift" component={EmployeePage} />
+        <Route exact path="/shift/insert" component={AddShift} />
+        <Route exact path="/shift/update" component={UpdateShift} />
+        <Route exact path="/shift/delete" component={DeleteShift} />
         <Route exact path="/Stats" component={Stats} />
         <Route exact path="/MoreStats" component={MoreStats} />
       </Switch>

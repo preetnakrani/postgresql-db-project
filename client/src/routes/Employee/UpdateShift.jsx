@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Form, Card, CardBody, CardTitle, Button } from "reactstrap";
+import { Form, Card, CardBody, CardTitle, Button, CardSubtitle } from "reactstrap";
 import FormComponent from "../../components/FormComponent.jsx";
 import "./employee.css";
 import database from "../../apis/database";
+import { CSSTransition } from "react-transition-group";
 
 const UpdateShift = () => {
   const [description, setDescription] = useState("");
@@ -19,7 +20,7 @@ const UpdateShift = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await database.post("/v1/employee/add", {
+      const response = await database.post("/v1/employee/update", {
         description: description,
         start_date: start_date,
         end_date: end_date,
@@ -30,18 +31,23 @@ const UpdateShift = () => {
         aid: aid,
       });
       console.log(response);
-      setShiftDetails(response.data.data.ticket);
+      setShiftDetails(response.data[0]);
       setSubmit(true);
     } catch (error) {}
   };
 
   return (
-    <div className="employee-container">
+    <div className="view-container">
       <div className="employee-card-container h-100 d-flex justify-content-center">
         {submit ? (
+          <CSSTransition
+            in={true}
+            appear={true}
+            timeout={2500}
+            classNames="node">
           <Card>
             <CardTitle className="p-2 text-center" tag="h2">
-              Shift details:
+              Your Shift Details:
             </CardTitle>
             <CardBody>
               <p className="card-text">
@@ -53,7 +59,7 @@ const UpdateShift = () => {
                 {shiftDetails.description}
               </p>
               <p className="card-text">
-                <span className="fw-bold">Attraction: $</span>
+                <span className="fw-bold">Attraction ID: </span>
                 {shiftDetails.aid}
               </p>
               <p className="card-text">
@@ -78,17 +84,26 @@ const UpdateShift = () => {
               </p>
             </CardBody>
           </Card>
+          </CSSTransition>
         ) : (
+          <CSSTransition
+            in={true}
+            appear={true}
+            timeout={2500}
+            classNames="node">
           <Card className="p-3">
             <CardTitle className="text-center" tag="h2">
-              Enter the necessary details to add a shift to an employee.
+              Enter the necessary details to update your shift.
             </CardTitle>
+            <CardSubtitle className="mb-2 text-muted">
+              Make sure your Employee ID and description match the details on your shift.
+            </CardSubtitle>
             <CardBody>
               <Form>
                 <FormComponent
                   state={description}
                   fn={(e) => setDescription(e.target.value)}
-                  label="Description"
+                  label="Description *"
                   type="text"
                   name="description"
                   id="description"
@@ -142,7 +157,7 @@ const UpdateShift = () => {
                 <FormComponent
                   state={eid}
                   fn={(e) => setEid(e.target.value)}
-                  label="Employee ID"
+                  label="Employee ID *"
                   type="text"
                   name="eid"
                   id="eid"
@@ -163,6 +178,7 @@ const UpdateShift = () => {
               </Form>
             </CardBody>
           </Card>
+          </CSSTransition>
         )}
       </div>
     </div>
