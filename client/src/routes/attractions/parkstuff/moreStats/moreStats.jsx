@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Button } from "reactstrap";
 import { CSSTransition } from "react-transition-group";
-import database from "../../../../apis/database";
+import Table from "../../../../common-components/table/table";
 import "./moreStats.css";
 
 const MoreStats = () => {
@@ -88,6 +88,10 @@ const MoreStats = () => {
     },
   ];
 
+  let globalDisp = globalColumns.map((val) => {
+    return { title: val.title, dataIndex: val.dataIndex };
+  });
+
   const tableType = [
     { display: "Attractions", actual: "attractions", id: 0 },
     { display: "Rides", actual: "rides", id: 1 },
@@ -97,6 +101,11 @@ const MoreStats = () => {
 
   const [columns, setColumns] = useState(globalColumns);
   const [all, setAll] = useState(tableType[0]);
+  const [cols, setCols] = useState(globalDisp);
+  const [selection, setSelection] = useState({
+    selection: ["*"],
+    table: tableType[0].actual,
+  });
 
   const addCondition = (idx) => {
     let tempCol = [...columns];
@@ -105,7 +114,8 @@ const MoreStats = () => {
   };
 
   const handleTableChange = (e) => {
-    setAll(tableType[e.target.value]);
+    let tempTableType = tableType;
+    setAll(tempTableType[e.target.value]);
   };
 
   let conditionsArray = columns.map((val, idx) => {
@@ -127,9 +137,9 @@ const MoreStats = () => {
   });
 
   let dropDown = (
-    <div className="division-options-container">
+    <div className="division-options1-container">
       <div className="selection-container">
-        <label className="select-label">Visited All::</label>
+        <label className="select-label">{"Visited All:   "} </label>
         <select
           className="select-box"
           value={all.id}
@@ -147,7 +157,28 @@ const MoreStats = () => {
     </div>
   );
 
-  const performQuery = () => {};
+  const performQuery = () => {
+    let final = {};
+    let tempColumns = [];
+    let tempSelections = [];
+    for (let k in columns) {
+      let x = columns[k];
+      if (x.active) {
+        tempColumns.push({ title: x.title, dataIndex: x.dataIndex });
+        tempSelections.push(x.actual);
+      }
+    }
+
+    if (tempColumns.length < 1) {
+      tempColumns = [...globalDisp];
+      tempSelections = ["*"];
+    }
+
+    final.selection = tempSelections;
+    final.table = all.actual;
+    setCols(tempColumns);
+    setSelection(final);
+  };
 
   return (
     <div className="attractions-container">
@@ -166,8 +197,24 @@ const MoreStats = () => {
         <div className="division-stuff-container">{dropDown}</div>
       </CSSTransition>
       <CSSTransition in={true} appear={true} timeout={2500} classNames="node">
-        <div className="options-container" onClick={() => performQuery()}>
+        <div
+          className="division-options-container"
+          onClick={() => performQuery()}
+        >
           Query!
+        </div>
+      </CSSTransition>
+      <CSSTransition in={true} appear={true} timeout={2500} classNames="node">
+        <div className="view-employees-container">
+          <div>
+            <Table
+              call={"/division"}
+              columns={cols}
+              selector={true}
+              selections={selection}
+              filename="moreStats"
+            />
+          </div>
         </div>
       </CSSTransition>
       <div className="space"></div>

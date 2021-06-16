@@ -86,7 +86,7 @@ header {
   align-items: center;
 }
 
-.options-container {
+.division-options-container {
   cursor: pointer;
   font-size: large;
   background-color: transparent;
@@ -97,9 +97,10 @@ header {
   padding-left: 15px;
   justify-content: center;
   padding-top: 15px;
+  align-self: center;
 }
 
-.options-container:hover {
+.division-options-container:hover {
   background-color: rgb(255 255 255 / 100%);
   box-shadow: 0 0 0px 10px rgb(0 0 0 / 50%);
   transition: background-color 500ms ease-in, box-shadow 600ms ease-in;
@@ -222,6 +223,8 @@ header {
   box-shadow: 0 0 10px 5px rgb(0 0 0 / 50%);
   width: 220px;
   height: 50px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .division-options-container {
@@ -229,6 +232,18 @@ header {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  font-size: x-large;
+  height: 150px;
+  width: 250px;
+  align-self: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.division-stuff-container:hover {
+  background-color: white;
+  box-shadow: 0 0 0px 5px rgb(0 0 0 / 50%);
+  transition: all background-color ease-in;
 }
 
 .options-container {

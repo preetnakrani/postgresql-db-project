@@ -351,6 +351,32 @@ app.post("/visit/attractions/park/stats", async function (req, res) {
   }
 });
 
+app.post("/division", async function (req, res) {
+  console.log(req.body);
+  let selection = req.body.selection;
+  let table = req.body.table;
+
+  let temp = "";
+  for (let i in selection) {
+    temp += `${selection[i]}, `;
+  }
+
+  temp = temp.slice(0, -2);
+  selection = temp;
+
+  let base = `select ${selection} from customer_purchases_with c where not exists (select * from ${table} a where not exists (select * from visits v where c.cid = v.cid and a.aid = v.aid));`;
+  let query = base;
+  console.log(query);
+
+  try {
+    let results = await db.query(query);
+    res.status(200).json(results.rows);
+  } catch (e) {
+    console.log(e);
+    res.status(500).json(e);
+  }
+});
+
 const publicPath = path.join(__dirname, "..", "client", "build");
 app.use(express.static(publicPath));
 
