@@ -3,6 +3,7 @@ import { Form, Card, CardBody, CardTitle, Button, CardSubtitle } from "reactstra
 import FormComponent from "../../components/FormComponent.jsx";
 import "./employee.css";
 import database from "../../apis/database";
+import { CSSTransition } from "react-transition-group";
 
 const UpdateShift = () => {
   const [description, setDescription] = useState("");
@@ -36,9 +37,14 @@ const UpdateShift = () => {
   };
 
   return (
-    <div className="employee-container">
+    <div className="view-container">
       <div className="employee-card-container h-100 d-flex justify-content-center">
         {submit ? (
+          <CSSTransition
+            in={true}
+            appear={true}
+            timeout={2500}
+            classNames="node">
           <Card>
             <CardTitle className="p-2 text-center" tag="h2">
               Your Shift Details:
@@ -78,7 +84,13 @@ const UpdateShift = () => {
               </p>
             </CardBody>
           </Card>
+          </CSSTransition>
         ) : (
+          <CSSTransition
+            in={true}
+            appear={true}
+            timeout={2500}
+            classNames="node">
           <Card className="p-3">
             <CardTitle className="text-center" tag="h2">
               Enter the necessary details to update your shift.
@@ -166,6 +178,7 @@ const UpdateShift = () => {
               </Form>
             </CardBody>
           </Card>
+          </CSSTransition>
         )}
       </div>
     </div>

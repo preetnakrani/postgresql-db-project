@@ -3,6 +3,7 @@ import { Form, Card, CardBody, CardTitle, Button } from "reactstrap";
 import FormComponent from "../../components/FormComponent.jsx";
 import "./employee.css";
 import database from "../../apis/database";
+import { CSSTransition } from "react-transition-group";
 
 const AddShift = () => {
   const [description, setDescription] = useState("");
@@ -36,9 +37,14 @@ const AddShift = () => {
   };
 
   return (
-    <div className="employee-container">
+    <div className="view-container">
       <div className="employee-card-container h-100 d-flex justify-content-center">
         {submit ? (
+          <CSSTransition
+            in={true}
+            appear={true}
+            timeout={2500}
+            classNames="node">
           <Card>
             <CardTitle className="p-2 text-center" tag="h2">
               Shift details:
@@ -78,7 +84,13 @@ const AddShift = () => {
               </p>
             </CardBody>
           </Card>
+          </CSSTransition>
         ) : (
+          <CSSTransition
+            in={true}
+            appear={true}
+            timeout={2500}
+            classNames="node">
           <Card className="p-3">
             <CardTitle className="text-center" tag="h2">
               Enter the necessary details to add a shift to an employee.
@@ -163,6 +175,7 @@ const AddShift = () => {
               </Form>
             </CardBody>
           </Card>
+          </CSSTransition>
         )}
       </div>
     </div>

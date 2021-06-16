@@ -1,5 +1,6 @@
 import React from 'react'
 import { useHistory } from "react-router-dom";
+import { CSSTransition } from 'react-transition-group';
 import {
     Card, CardText, CardBody, CardLink,
     CardTitle, CardSubtitle,
@@ -24,9 +25,14 @@ const EmployeePage = () => {
     };
 
     return (
-        <div className="employee-container">
-        <div className="employee-card-container h-100 d-flex justify-content-center">
+        <div className="view-container">
+        <div className="h-100 d-flex justify-content-center">
         <div className="card-holder">
+        <CSSTransition
+            in={true}
+            appear={true}
+            timeout={2500}
+            classNames="node">
             <Card>
             <div>
                 <CardBody className="d-flex justify-content-center">
@@ -37,6 +43,7 @@ const EmployeePage = () => {
                 </CardBody>
             </div>
             </Card>
+        </CSSTransition>
         </div>
         </div>
         </div>
