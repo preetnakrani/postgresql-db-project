@@ -17,6 +17,14 @@ import AddShift from "./routes/Employee/AddShift";
 import UpdateShift from "./routes/Employee/UpdateShift";
 import DeleteShift from "./routes/Employee/DeleteShift";
 
+import CustomerPage from "./routes/Customer/CustomerPage";
+import ViewAttractions from "./routes/Customer/ViewAttractions";
+import BuyTicket from "./routes/Customer/BuyTicket";
+import ViewShows from "./routes/Customer/ViewShows";
+import ViewDinos from "./routes/Customer/ViewDinos";
+import ViewRides from "./routes/Customer/ViewRides";
+import ViewTickets from "./routes/Customer/ViewTickets";
+
 import "./app.css";
 
 const App = () => {
@@ -37,6 +45,13 @@ const App = () => {
         <Route exact path="/shift/delete" component={DeleteShift} />
         <Route exact path="/Stats" component={Stats} />
         <Route exact path="/MoreStats" component={MoreStats} />
+        <Route exact path="/customerPage" component={CustomerPage} />
+        <Route exact path="/customer/attractions" component={ViewAttractions} />
+        <Route exact path="/customer/attractions/shows" component={ViewShows} />
+        <Route exact path="/customer/attractions/dinos" component={ViewDinos} />
+        <Route exact path="/customer/attractions/rides" component={ViewRides} />
+        <Route exact path="/customer/buy" component={BuyTicket} />
+        <Route exact path="/customer/view-tickets" component={ViewTickets} />
       </Switch>
     </Router>
   );

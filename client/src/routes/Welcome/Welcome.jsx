@@ -18,7 +18,7 @@ const Welcome = () => {
   };
 
   const customerClick = () => {
-    history.push("/customer");
+    history.push("/customerPage");
   };
 
   const exploreClick = () => {
