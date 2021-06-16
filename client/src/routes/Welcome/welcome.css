@@ -1,42 +1,122 @@
 .welcome-container {
-    background: url("https://www.thesun.co.uk/wp-content/uploads/2021/04/NINTCHDBPICT000648564696.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: fixed;
+  background: url("https://www.thesun.co.uk/wp-content/uploads/2021/04/NINTCHDBPICT000648564696.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 .welcome-banner-container {
-    z-index: 100;
+  z-index: 100;
+  align-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 20px;
+  box-shadow: 0 0 10px 5px rgb(0 0 0 / 50%);
+  margin: auto auto auto auto;
+  padding-top: 30px;
+  width: 900px;
+  transition: box-shadow 1000ms ease, background-color 1000ms ease-in-out;
+}
+.welcome-banner-container:hover {
+  box-shadow: 0 0 5px 10px rgb(0 0 0 / 50%);
+  background-color: rgb(255, 255, 255, 100%);
+  transition: box-shadow 1000ms ease, background-color 1000ms ease-in-out;
 }
 
 .welcome-banner {
-    font-size: 500%;
+  font-size: 500%;
 }
 
 .welcome-card-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 10px;
-    padding-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 10px;
+  padding-bottom: 50px;
 }
 
 .card-holder {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 50%;
-    border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
+  height: 20%;
+  border-radius: 30px;
+  box-shadow: 0 0 10px 5px rgb(0 0 0 / 50%);
+  margin-top: 50px;
+  margin-bottom: 10px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.card-holder:hover {
+  box-shadow: 0 0 5px 10px rgb(0 0 0 / 50%);
+  transition: all 600ms ease-in-out;
 }
 
 .card {
-    border-radius: 25px; 
-    margin-bottom: 25px;
-    margin-top: 25px;
+  border-radius: 25px;
+  margin-bottom: 25px;
+  margin-top: 25px;
+  width: 55%;
+  min-height: 350px;
+  box-shadow: 0 0 10px 5px rgb(0 0 0 / 50%);
 }
 
 .card-img {
-    border-top-left-radius: 25px;
-    border-top-right-radius: 25px;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+
+.space-1 {
+  background-color: transparent;
+  height: 10px;
+}
+
+.node-appear {
+  opacity: 0;
+  transform: translate(0, 50px);
+  size: 0;
+}
+
+.node-appear-active {
+  opacity: 1;
+  transform: translate(0, 0px);
+  transition: opacity 1000ms ease-in, transform 1000ms linear;
+}
+
+.node-0-appear {
+  opacity: 0;
+  transform: translate(-150px, 0px);
+  size: 0;
+}
+
+.node-0-appear-active {
+  opacity: 1;
+  transform: translate(0, 0px);
+  transition: opacity 1000ms ease-in, transform 1000ms ease-in-out;
+}
+
+.node-1-appear {
+  opacity: 0;
+  transform: translate(150px, 0px);
+  size: 0;
+}
+
+.node-1-appear-active {
+  opacity: 1;
+  transform: translate(0, 0px);
+  transition: opacity 1000ms ease-in, transform 1000ms ease-in-out;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

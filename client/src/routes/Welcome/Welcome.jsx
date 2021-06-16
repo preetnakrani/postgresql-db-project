@@ -8,6 +8,7 @@ import {
   CardTitle,
   Button,
 } from "reactstrap";
+import { CSSTransition } from "react-transition-group";
 import "./welcome.css";
 
 const Welcome = () => {
@@ -49,33 +50,44 @@ const Welcome = () => {
     img: "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/d109ce23061557.563311582423a.jpg",
   };
 
-  const cards = [exploreCard, customerCard, employeeCard];
+  const cards = [employeeCard, customerCard];
 
   return (
     <div className="welcome-container">
-      <div className="welcome-banner-container">
-        <h1 className="welcome-banner">Welcome To The Park!</h1>
-      </div>
+      <div className="space-1"></div>
+      <CSSTransition in={true} appear={true} timeout={2500} classNames="node">
+        <div className="welcome-banner-container">
+          <h1 className="welcome-banner">Welcome To The Park!</h1>
+        </div>
+      </CSSTransition>
       <div className="welcome-card-container">
         {cards.map((val, idx) => (
-          <div className="card-holder" key={idx}>
-            <Card className="card">
-              <CardImg
-                className="card-img"
-                top
-                width="50%"
-                src={val.img}
-                alt={val.alt}
-              />
-              <CardBody>
-                <CardTitle tag="h5">{val.title}</CardTitle>
-                <CardText>{val.text}</CardText>
-                <Button onClick={val.click}>Click Here</Button>
-              </CardBody>
-            </Card>
-          </div>
+          <CSSTransition
+            in={true}
+            appear={true}
+            timeout={2500}
+            classNames={`node-${idx}`}
+          >
+            <div className="card-holder" key={idx}>
+              <Card className="card">
+                <CardImg
+                  className="card-img"
+                  top
+                  width="50%"
+                  src={val.img}
+                  alt={val.alt}
+                />
+                <CardBody>
+                  <CardTitle tag="h5">{val.title}</CardTitle>
+                  <CardText>{val.text}</CardText>
+                  <Button onClick={val.click}>Click Here</Button>
+                </CardBody>
+              </Card>
+            </div>
+          </CSSTransition>
         ))}
       </div>
+      <div className="space"></div>
     </div>
   );
 };
