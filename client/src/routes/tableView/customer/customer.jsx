@@ -401,7 +401,7 @@ const Customer = () => {
         <Button className="backButton" onClick={history.goBack}>
           <span>{"<"}</span>
         </Button>
-        <header className="employees-banner">Employees Table</header>
+        <header className="employees-banner">Customer Table</header>
       </div>
       <CSSTransition in={true} appear={true} timeout={2500} classNames="node">
         <div className="buttons-container">
