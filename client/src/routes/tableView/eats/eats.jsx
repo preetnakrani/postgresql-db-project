@@ -197,15 +197,7 @@ const Eats = () => {
         <div className="not-cancel">
           <h6>{val.column}</h6>
           <form className="single-form">
-            <div className="check-container">
-              <label className="check-label">NOT ?:</label>
-              <input
-                type="checkbox"
-                className="check-box"
-                checked={val.not}
-                onChange={(e) => boolChange(e, idx)}
-              />
-            </div>
+            <div className="check-container"></div>
             <div className="selection-container">
               <label className="select-label">Condition Type:</label>
               <select
