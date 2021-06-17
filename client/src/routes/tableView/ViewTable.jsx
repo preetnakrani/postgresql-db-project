@@ -5,19 +5,7 @@ import { CSSTransition } from "react-transition-group";
 import "./viewTable.css";
 
 const ViewTable = () => {
-  const tables = [
-    "Employees",
-    "Customer",
-    "Food",
-    "Inventory",
-    "Eats",
-    "Attractions",
-    "Offers",
-    "Schedules",
-    "Shift",
-    "Tickets",
-    "Visits",
-  ];
+  const tables = ["Employees", "Attractions", "Customer", "Eats", "Shift"];
 
   const click = tables.map(
     (val) => () => history.push(val.toLocaleLowerCase())
